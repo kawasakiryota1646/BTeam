@@ -14,7 +14,8 @@ public class PlayerController : MonoBehaviour
     public static int hp = 3; //プレイヤーのHP
     public static string gameState; //ゲームの状態
     bool inDamage = false; //ダメージ中フラグ
-   
+
+    public GameObject[] deathEffects; // 死亡時のエフェクト（3段階）
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +38,7 @@ public class PlayerController : MonoBehaviour
 
         if(hp == 0)
         {
-            GameOver();
+            StartCoroutine(GameOver());
         }
     }
 
@@ -99,12 +100,19 @@ public class PlayerController : MonoBehaviour
 
     }
     //ゲームオーバー
-    void GameOver()
+    IEnumerator GameOver()
     {
         gameState = "gameover";
         //ゲームオーバー演出
         GetComponent<BoxCollider2D>().enabled = false; //プレイヤーあたりを消す
-        Destroy(player, 0.1f); //1秒後にプレイヤーを消す
+        // 3段階のエフェクトを0.2秒ずつ表示
+        foreach (GameObject effectPrefab in deathEffects)
+        {
+            GameObject effect = Instantiate(effectPrefab, transform.position, Quaternion.identity);
+            Destroy(effect, 0.5f); // 0.5秒後にエフェクトを消去
+            yield return new WaitForSeconds(0.2f);
+            Destroy(player, 0.1f); //1秒後にプレイヤーを消す
+        }
     }
 
    
