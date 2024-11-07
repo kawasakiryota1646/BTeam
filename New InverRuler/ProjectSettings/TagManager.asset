@@ -7,6 +7,8 @@ TagManager:
   - friend
   - Enemy
   - EnemyBullet
+  - FriendBullet
+  - Wall
   layers:
   - Default
   - TransparentFX
