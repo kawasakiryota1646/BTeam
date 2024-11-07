@@ -537,6 +537,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1d3655b0e5e5c94b9ffa2d1bb8d181e, type: 3}
+--- !u!114 &1375155259 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8187042780733529770, guid: 80f04b7abddeef74dace4d70bfe12f00, type: 3}
+  m_PrefabInstance: {fileID: 1757357023}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1470847239
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -701,6 +712,26 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 40369611}
+    - target: {fileID: 4122170382078675416, guid: 80f04b7abddeef74dace4d70bfe12f00, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 508.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 4122170382078675416, guid: 80f04b7abddeef74dace4d70bfe12f00, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 211.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4122170382078675416, guid: 80f04b7abddeef74dace4d70bfe12f00, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.0007782
+      objectReference: {fileID: 0}
+    - target: {fileID: 4122170382078675416, guid: 80f04b7abddeef74dace4d70bfe12f00, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.0084915
+      objectReference: {fileID: 0}
+    - target: {fileID: 7864788097713523019, guid: 80f04b7abddeef74dace4d70bfe12f00, type: 3}
+      propertyPath: life0Image
+      value: 
+      objectReference: {fileID: -2030417582, guid: 2bb673f6005c5c748b2ffb701afb7ae1, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80f04b7abddeef74dace4d70bfe12f00, type: 3}
 --- !u!1 &1994465089 stripped
@@ -893,17 +924,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: JapanBoss
       objectReference: {fileID: 0}
+    - target: {fileID: 5677391024846199634, guid: 877c26420e16d3e4c90b8d263b204bda, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7532776519868464585, guid: 877c26420e16d3e4c90b8d263b204bda, type: 3}
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7532776519868464585, guid: 877c26420e16d3e4c90b8d263b204bda, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.23
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7532776519868464585, guid: 877c26420e16d3e4c90b8d263b204bda, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.27
+      value: 2.76
       objectReference: {fileID: 0}
     - target: {fileID: 7532776519868464585, guid: 877c26420e16d3e4c90b8d263b204bda, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1060,10 +1095,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 601526406515540967, guid: 104d7d4b5b097784188edb61e1d79c36, type: 3}
+      propertyPath: ammoPrefab
+      value: 
+      objectReference: {fileID: 3649114772506764417, guid: c0103f6489a850542b5b6f15a98b9a30, type: 3}
     - target: {fileID: 4400872010754582943, guid: 104d7d4b5b097784188edb61e1d79c36, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 337867311}
+    - target: {fileID: 5374074079745474929, guid: 104d7d4b5b097784188edb61e1d79c36, type: 3}
+      propertyPath: ammoText
+      value: 
+      objectReference: {fileID: 1375155259}
     - target: {fileID: 5409472775301271507, guid: 104d7d4b5b097784188edb61e1d79c36, type: 3}
       propertyPath: m_RootOrder
       value: 4
