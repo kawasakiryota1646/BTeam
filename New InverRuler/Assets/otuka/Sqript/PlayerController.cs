@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; // UIを使用するために必要
 
 public class PlayerController : MonoBehaviour
 {
     public GameObject player;
-
     public float speed = 3.0f; //移動スピード
     float axisH; //横軸
     float axisV; //縦軸
@@ -16,27 +16,33 @@ public class PlayerController : MonoBehaviour
     bool inDamage = false; //ダメージ中フラグ
 
     public GameObject[] deathEffects; // 死亡時のエフェクト（3段階）
+    public GameObject gameOverUI; // ゲームオーバー時のUI
+    public GameObject Button1UI; // ゲームオーバー時のUI
+    public GameObject Button2UI; // ゲームオーバー時のUI
+    public GameObject gameStartText; // GAME STARTのテキスト
+    public AudioSource gameOverBGM; // ゲームオーバー時のBGM
 
     // Start is called before the first frame update
     void Start()
     {
-
         Application.targetFrameRate = 60; // FPSを60に固定
+        rbody = GetComponent<Rigidbody2D>(); //Rigidbody2を得る
+        gameState = "playing"; //ゲームの状態をプレイ中にする
+        gameOverUI.SetActive(false); // ゲームオーバーUIを非表示にする
+        Button1UI.SetActive(false); // ゲームオーバーUIを非表示にする
+        Button2UI.SetActive(false); // ゲームオーバーUIを非表示にする
 
-        rbody = GetComponent<Rigidbody2D>();//Rigidbody2を得る
-       //ゲームの状態をプレイ中にする
-        gameState = "playing";
-
+        // GAME STARTテキストを表示するコルーチンを開始
+        StartCoroutine(ShowGameStartText());
     }
 
     // Update is called once per frame
     void Update()
     {
-        
         axisH = Input.GetAxisRaw("Horizontal"); //左右キー入力
         axisV = Input.GetAxisRaw("Vertical"); //上下キー入力
 
-        if(hp == 0)
+        if (hp == 0)
         {
             StartCoroutine(GameOver());
         }
@@ -44,7 +50,6 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-       
         //移動速度を更新する
         rbody.velocity = new Vector2(axisH, axisV).normalized * speed;
     }
@@ -52,36 +57,15 @@ public class PlayerController : MonoBehaviour
     //接触
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "EnemyBullet")
         {
-            GetDamage(collision.gameObject);
-        }
-
-        if (collision.gameObject.tag == "EnemyBullet")
-        {
-            GetDamage1(collision.gameObject);
+            GetDamage();
         }
     }
 
     //ダメージ
-    void GetDamage(GameObject enemy)
+    void GetDamage()
     {
-
-        if(gameState == "playing")
-        {
-            hp--; //を減らす
-            if(hp > 0)
-            {
-                //ダメージフラグON
-                inDamage = true;
-                Invoke("DamageEnd",0.25f);
-            }
-        }
-        
-    }
-    void GetDamage1(GameObject enemy)
-    {
-
         if (gameState == "playing")
         {
             hp--; //を減らす
@@ -92,28 +76,59 @@ public class PlayerController : MonoBehaviour
                 Invoke("DamageEnd", 0.25f);
             }
         }
-
     }
 
     public void Clear()
     {
-
+        // クリア時の処理
     }
+
     //ゲームオーバー
     IEnumerator GameOver()
     {
         gameState = "gameover";
         //ゲームオーバー演出
         GetComponent<BoxCollider2D>().enabled = false; //プレイヤーあたりを消す
+
         // 3段階のエフェクトを0.2秒ずつ表示
         foreach (GameObject effectPrefab in deathEffects)
         {
             GameObject effect = Instantiate(effectPrefab, transform.position, Quaternion.identity);
             Destroy(effect, 0.5f); // 0.5秒後にエフェクトを消去
             yield return new WaitForSeconds(0.2f);
-            Destroy(player, 0.1f); //1秒後にプレイヤーを消す
         }
+
+        Destroy(player, 0.1f); // プレイヤーを消す
+
+        // ゲームオーバーUIを表示
+        gameOverUI.SetActive(true);
+        Button1UI.SetActive(true);
+        Button2UI.SetActive(true);
+
+        // ゲームオーバーBGMを再生
+        gameOverBGM.Play();
     }
 
-   
+    // プレイヤーのライフをリセットするメソッド
+    public void ResetPlayerHealth()
+    {
+        hp = 3; // 初期値に戻す
+    }
+
+    // GAME STARTテキストを表示し、ゲームを停止するコルーチン
+    IEnumerator ShowGameStartText()
+    {
+        gameStartText.SetActive(true); // テキストを表示
+        Time.timeScale = 0f; // ゲームを停止
+        yield return new WaitForSecondsRealtime(3f); // 1秒待つ
+        gameStartText.SetActive(false); // テキストを非表示
+        Time.timeScale = 1f; // ゲームを再開
+    }
 }
+
+
+
+
+
+
+
