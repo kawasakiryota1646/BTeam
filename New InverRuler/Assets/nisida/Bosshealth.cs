@@ -12,9 +12,7 @@ public class Bosshealth : MonoBehaviour
     public GameObject retryButton; // リトライボタン
     public GameObject nextButton; // 次へボタン
     public GameObject gameClearText; // GAMEクリアのテキスト
-    public AudioClip gameClearBGM; // ゲームクリア時のBGM
-
-    private AudioSource audioSource;
+    public BGMController bgmController; // BGMコントローラー
 
     void Start()
     {
@@ -25,9 +23,6 @@ public class Bosshealth : MonoBehaviour
         retryButton.SetActive(false);
         nextButton.SetActive(false);
         gameClearText.SetActive(false);
-
-        // AudioSourceコンポーネントを追加
-        audioSource = gameObject.AddComponent<AudioSource>();
     }
 
     public void TakeDamage(float damageAmount)
@@ -50,8 +45,13 @@ public class Bosshealth : MonoBehaviour
         gameClearText.SetActive(true);
 
         // ゲームクリアBGMを再生する
-        audioSource.clip = gameClearBGM;
-        audioSource.Play();
+        if (bgmController != null)
+        {
+            bgmController.PlayGameClearBGM();
+        }
+
+        // ゲームを停止する
+        Time.timeScale = 0f;
     }
 
     private IEnumerator Flash()
@@ -61,4 +61,8 @@ public class Bosshealth : MonoBehaviour
         spriteRenderer.color = originalColor;
     }
 }
+
+
+
+
 

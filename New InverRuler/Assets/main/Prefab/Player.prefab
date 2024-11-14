@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5409472775301271507}
   - component: {fileID: 3535744280295969704}
-  - component: {fileID: 5374074079745474929}
-  - component: {fileID: 4400872010754582943}
-  - component: {fileID: 601526406515540967}
   - component: {fileID: 8387400920819097985}
   - component: {fileID: 6855661735995616078}
+  - component: {fileID: 2315956479505371976}
+  - component: {fileID: 1696250348893351262}
+  - component: {fileID: 4036959472987032027}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -89,52 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5374074079745474929
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5628597861727087577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18cc90f22b0c9ef4eba720b2ba577ffa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 7701493126364654518, guid: 9d72de81cb7b1274ea4ac7dce00ad38b, type: 3}
-  firePoint: {fileID: 5409472775301271507}
-  ammoText: {fileID: 0}
-  bulletSpeed: 10
-  bulletDamage: 5
-  maxBullets: 10
---- !u!114 &4400872010754582943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5628597861727087577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5382f32aa9569b74c96c4ecde3d1db59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  speed: 3
---- !u!114 &601526406515540967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5628597861727087577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0246f4d425b171a408fa4f53a0d58c7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ammoPrefab: {fileID: 0}
-  spawnInterval: 10
 --- !u!50 &8387400920819097985
 Rigidbody2D:
   serializedVersion: 4
@@ -182,3 +136,57 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.32}
   m_EdgeRadius: 0
+--- !u!114 &2315956479505371976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5628597861727087577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1580f160724cda4d9c8341b8cf91c07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 7701493126364654518, guid: 9d72de81cb7b1274ea4ac7dce00ad38b, type: 3}
+  firePoint: {fileID: 5409472775301271507}
+  ammoText: {fileID: 0}
+  bulletSpeed: 10
+  bulletDamage: 5
+  maxBullets: 10
+--- !u!114 &1696250348893351262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5628597861727087577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5382f32aa9569b74c96c4ecde3d1db59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 5628597861727087577}
+  speed: 3
+  deathEffects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  gameOverUI: {fileID: 0}
+  Button1UI: {fileID: 0}
+  Button2UI: {fileID: 0}
+  gameStartText: {fileID: 0}
+--- !u!114 &4036959472987032027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5628597861727087577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0246f4d425b171a408fa4f53a0d58c7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ammoPrefab: {fileID: 3649114772506764417, guid: c0103f6489a850542b5b6f15a98b9a30, type: 3}
+  spawnInterval: 10

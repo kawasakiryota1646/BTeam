@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     public GameObject Button1UI; // ゲームオーバー時のUI
     public GameObject Button2UI; // ゲームオーバー時のUI
     public GameObject gameStartText; // GAME STARTのテキスト
-    public AudioSource gameOverBGM; // ゲームオーバー時のBGM
+    public BGMController bgmController; // BGMコントローラー
 
     // Start is called before the first frame update
     void Start()
@@ -105,9 +105,14 @@ public class PlayerController : MonoBehaviour
         Button1UI.SetActive(true);
         Button2UI.SetActive(true);
 
-        // ゲームオーバーBGMを再生
-        gameOverBGM.Play();
+        // ゲームオーバーBGMを再生する
+        if (bgmController != null)
+        {
+            bgmController.PlayGameOverBGM();
+        }
     }
+
+    
 
     // プレイヤーのライフをリセットするメソッド
     public void ResetPlayerHealth()
@@ -120,11 +125,13 @@ public class PlayerController : MonoBehaviour
     {
         gameStartText.SetActive(true); // テキストを表示
         Time.timeScale = 0f; // ゲームを停止
-        yield return new WaitForSecondsRealtime(3f); // 1秒待つ
+        yield return new WaitForSecondsRealtime(3f); // 3秒待つ
         gameStartText.SetActive(false); // テキストを非表示
         Time.timeScale = 1f; // ゲームを再開
     }
 }
+
+
 
 
 
