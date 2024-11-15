@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/main/Stage normal.unity
     guid: 0dbe22d71fa3dd74f8d9d6e1515c82e1
   - enabled: 1
+    path: Assets/otuka/result/result.unity
+    guid: 601ed8f1f488a6c4da7049ce358e8408
+  - enabled: 1
     path: Assets/otuka/Shop/Ally Enhancement/Ally Enhancement.unity
     guid: c65c44be2dcae7449b32952b54b7fb6c
   - enabled: 1
