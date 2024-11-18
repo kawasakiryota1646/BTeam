@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FriendController : MonoBehaviour
 {
-    public GameObject explosionPrefab; // 爆発エフェクトのプレハブを参照
+    public GameObject[] deathEffects; // 死亡時のエフェクト（3段階）
 
     // Start is called before the first frame update
     void Start()
@@ -27,13 +27,15 @@ public class FriendController : MonoBehaviour
         }
     }
 
-    private IEnumerator HandleExplosion()
+    IEnumerator HandleExplosion()
     {
-        GameObject explosion = Instantiate(explosionPrefab, transform.position, transform.rotation); // 爆発エフェクトをインスタンス化
-        Debug.Log("Explosion instantiated"); // デバッグログ
-        yield return new WaitForSeconds(0.5f); // 0.5秒待機
-        Destroy(explosion); // 爆発エフェクトを消滅させる
-        Debug.Log("Explosion destroyed"); // デバッグログ
+        // 3段階のエフェクトを0.2秒ずつ表示
+        foreach (GameObject effectPrefab in deathEffects)
+        {
+            GameObject effect = Instantiate(effectPrefab, transform.position, Quaternion.identity);
+            Destroy(effect, 1.0f); // 0.5秒後にエフェクトを消去
+            yield return new WaitForSeconds(0.2f);
+        }
     }
 }
 

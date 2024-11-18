@@ -339,6 +339,18 @@ PrefabInstance:
       propertyPath: explosionPrefab
       value: 
       objectReference: {fileID: 8839678283891761853, guid: f8158ad1be0e18b42a529080e724b733, type: 3}
+    - target: {fileID: 4066101971310992278, guid: acecde0d711771b40a71d565079fe852, type: 3}
+      propertyPath: deathEffects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066101971310992278, guid: acecde0d711771b40a71d565079fe852, type: 3}
+      propertyPath: deathEffects.Array.data[0]
+      value: 
+      objectReference: {fileID: 8839678283891761853, guid: f8158ad1be0e18b42a529080e724b733, type: 3}
+    - target: {fileID: 4066101971310992278, guid: acecde0d711771b40a71d565079fe852, type: 3}
+      propertyPath: deathEffects.Array.data[1]
+      value: 
+      objectReference: {fileID: 8839678283891761853, guid: f8158ad1be0e18b42a529080e724b733, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acecde0d711771b40a71d565079fe852, type: 3}
 --- !u!1001 &599765417
@@ -1166,7 +1178,7 @@ PrefabInstance:
       objectReference: {fileID: 40369611}
     - target: {fileID: 3809690916903206175, guid: 80f04b7abddeef74dace4d70bfe12f00, type: 3}
       propertyPath: m_SortingOrder
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4122170382078675416, guid: 80f04b7abddeef74dace4d70bfe12f00, type: 3}
       propertyPath: m_SizeDelta.x
@@ -1364,9 +1376,6 @@ MonoBehaviour:
   health: 100
   flashDuration: 0.1
   deathEffects:
-  - {fileID: 6369508233973101628, guid: c29b9abfaf2eebb4b9736fd016fca165, type: 3}
-  - {fileID: 249110656335039890, guid: 0e095b05d310b1b4199896cc70aafd71, type: 3}
-  - {fileID: 8486911459558470706, guid: a9e8cd16f5146a646ba0f22c5cfcb8a0, type: 3}
   - {fileID: 205398590896992992, guid: 851a771a406db274e9d5a38a2ebe072c, type: 3}
   retryButton: {fileID: 291434790}
   nextButton: {fileID: 1734716916}
@@ -1662,11 +1671,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7532776519868464585, guid: 877c26420e16d3e4c90b8d263b204bda, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.2
+      value: -0.16
       objectReference: {fileID: 0}
     - target: {fileID: 7532776519868464585, guid: 877c26420e16d3e4c90b8d263b204bda, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.76
+      value: 2.72
       objectReference: {fileID: 0}
     - target: {fileID: 7532776519868464585, guid: 877c26420e16d3e4c90b8d263b204bda, type: 3}
       propertyPath: m_LocalPosition.z

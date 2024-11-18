@@ -33,20 +33,17 @@ public class Bosshealth : MonoBehaviour
         health -= damageAmount;
         if (health <= 0f)
         {
-            Die();
+            StartCoroutine(Die());
         }
         StartCoroutine(Flash());
     }
 
     IEnumerator Die()
     {
-        foreach (GameObject effectPrefab in deathEffects)
-        {
-            GameObject effect = Instantiate(effectPrefab, transform.position, Quaternion.identity);
-            Destroy(effect, 0.5f); // 0.5秒後にエフェクトを消去
-            yield return new WaitForSeconds(0.2f);
-        }
+        yield return StartCoroutine(HandleExplosion()); // コルーチンを開始
         Destroy(gameObject); // 敵を消す
+
+      
 
         // ボタンとテキストを表示する
         retryButton.SetActive(true);
@@ -64,9 +61,6 @@ public class Bosshealth : MonoBehaviour
 
         // コインを追加する
         CoinManager.instance.AddCoins(coinsToAdd);
-
-        // ゲームを停止する
-        Time.timeScale = 0f;
     }
 
     private IEnumerator Flash()
@@ -76,7 +70,7 @@ public class Bosshealth : MonoBehaviour
         spriteRenderer.color = originalColor;
     }
 
-    private void SpawnCoins()
+    void SpawnCoins()
     {
         for (int i = 0; i < coinCount; i++)
         {
@@ -85,12 +79,24 @@ public class Bosshealth : MonoBehaviour
         }
     }
 
-    private IEnumerator HideCoinAfterDelay(GameObject coin, float delay)
+    IEnumerator HideCoinAfterDelay(GameObject coin, float delay)
     {
         yield return new WaitForSeconds(delay);
         coin.SetActive(false); // コインを非表示にする
     }
+
+    IEnumerator HandleExplosion()
+    {
+        // 3段階のエフェクトを0.2秒ずつ表示
+        foreach (GameObject effectPrefab in deathEffects)
+        {
+            GameObject effect = Instantiate(effectPrefab, transform.position, Quaternion.identity);
+            Destroy(effect, 1.0f); // 1秒後にエフェクトを消去
+            yield return new WaitForSeconds(0.2f);
+        }
+    }
 }
+
 
 
 
