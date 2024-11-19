@@ -21,8 +21,7 @@ public class PlayerController : MonoBehaviour
     public GameObject Button2UI; // ゲームオーバー時のUI
     public GameObject gameStartText; // GAME STARTのテキスト
     public BGMController bgmController; // BGMコントローラー
-    public AudioSource deathSound; // 死亡時の効果音
-    public AudioSource explosionSound; // 爆発効果音
+
 
     // Start is called before the first frame update
     void Start()
@@ -88,11 +87,11 @@ public class PlayerController : MonoBehaviour
     //ゲームオーバー
     IEnumerator GameOver()
     {
-       
-
         gameState = "gameover";
-        //ゲームオーバー演出
-        GetComponent<Collider2D>().enabled = false; //プレイヤーあたりを消す
+        // プレイヤーの操作を無効にする
+        GetComponent<PlayerController>().enabled = false;
+
+       
 
         // 3段階のエフェクトを0.2秒ずつ表示
         foreach (GameObject effectPrefab in deathEffects)

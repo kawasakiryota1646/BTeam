@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2183988180045808088
+--- !u!1 &6888441667792468481
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,42 +8,44 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2183988180045808095}
-  - component: {fileID: 2183988180045808094}
-  - component: {fileID: 2183988180045808093}
-  - component: {fileID: 2183988180045808090}
-  - component: {fileID: 2183988180045808089}
-  - component: {fileID: 4066101971310992278}
-  - component: {fileID: 1942849195780692324}
+  - component: {fileID: 6888441667792468497}
+  - component: {fileID: 6888441667792468496}
+  - component: {fileID: 6888441667792468511}
+  - component: {fileID: 6888441667792468510}
+  - component: {fileID: 6888441667792468509}
+  - component: {fileID: 6888441667792468508}
+  - component: {fileID: 6888441667792468507}
+  - component: {fileID: 6888441667792468505}
+  - component: {fileID: 6888441667792468506}
   m_Layer: 0
-  m_Name: friendly
+  m_Name: friendly (1)
   m_TagString: friend
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2183988180045808095
+--- !u!4 &6888441667792468497
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2183988180045808088}
+  m_GameObject: {fileID: 6888441667792468481}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.5676, y: -3.7907, z: 0}
+  m_LocalPosition: {x: -1.57, y: -3.71, z: 0}
   m_LocalScale: {x: 2.2525165, y: 2.142347, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &2183988180045808094
+--- !u!212 &6888441667792468496
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2183988180045808088}
+  m_GameObject: {fileID: 6888441667792468481}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -77,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 1f847a88739084d4698441745669fc12, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -89,30 +91,30 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2183988180045808093
+--- !u!114 &6888441667792468511
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2183988180045808088}
+  m_GameObject: {fileID: 6888441667792468481}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e17b85e7145d4544cb945964a16759b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 7169626298057832559, guid: 15adcb739ed706f4fa7f83318adbb9b3, type: 3}
-  firePoint: {fileID: 2183988180045808095}
+  firePoint: {fileID: 6888441667792468497}
   fireRate: 0.5
-  damage: 10
---- !u!50 &2183988180045808090
+  damage: 1
+--- !u!50 &6888441667792468510
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2183988180045808088}
+  m_GameObject: {fileID: 6888441667792468481}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -126,13 +128,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &2183988180045808089
+--- !u!61 &6888441667792468509
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2183988180045808088}
+  m_GameObject: {fileID: 6888441667792468481}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -152,28 +154,60 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.32}
   m_EdgeRadius: 0
---- !u!114 &4066101971310992278
+--- !u!114 &6888441667792468508
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2183988180045808088}
+  m_GameObject: {fileID: 6888441667792468481}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f0413dc9c2a39045ba2aa88d7c7a482, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1942849195780692324
+  deathEffects:
+  - {fileID: 8839678283891761853, guid: f8158ad1be0e18b42a529080e724b733, type: 3}
+--- !u!114 &6888441667792468507
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2183988180045808088}
+  m_GameObject: {fileID: 6888441667792468481}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e19b9958ec754db4282d86a210e65601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+--- !u!114 &6888441667792468505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6888441667792468481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9933c37bff41c4b4fbfcfb25fc12afde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionRadius: 1
+  avoidSpeed: 5
+  returnSpeed: 2
+--- !u!114 &6888441667792468506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6888441667792468481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 283bcb4da3631e04a9dd47e97f151bf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftEdge: {fileID: 0}
+  rightEdge: {fileID: 0}
+  moveSpeed: 3
