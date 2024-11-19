@@ -1042,6 +1042,44 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5645685623511169342, guid: 80f04b7abddeef74dace4d70bfe12f00, type: 3}
   m_PrefabInstance: {fileID: 1757357023}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
+=======
+--- !u!1 &1734108809 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2183988180045808088, guid: acecde0d711771b40a71d565079fe852, type: 3}
+  m_PrefabInstance: {fileID: 502037877}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1734108817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734108809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9933c37bff41c4b4fbfcfb25fc12afde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionRadius: 1
+  avoidSpeed: 3
+  returnSpeed: 2
+--- !u!114 &1734108818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734108809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 283bcb4da3631e04a9dd47e97f151bf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftEdge: {fileID: 1803740316}
+  rightEdge: {fileID: 217483445}
+  moveSpeed: 3
+>>>>>>> 150d8ace796ef87011ad1d05b8a89fd536ccbcac
 --- !u!1 &1734716916 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3408727526191845182, guid: 80f04b7abddeef74dace4d70bfe12f00, type: 3}
@@ -1762,6 +1800,10 @@ PrefabInstance:
       propertyPath: deathEffects.Array.data[0]
       value: 
       objectReference: {fileID: 205398590896992992, guid: 851a771a406db274e9d5a38a2ebe072c, type: 3}
+    - target: {fileID: 4453932320518785533, guid: 877c26420e16d3e4c90b8d263b204bda, type: 3}
+      propertyPath: randomCount
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 877c26420e16d3e4c90b8d263b204bda, type: 3}
 --- !u!1001 &5251873288496752993
