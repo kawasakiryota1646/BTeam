@@ -22,11 +22,12 @@ public class PlayerController : MonoBehaviour
     public GameObject gameStartText; // GAME STARTのテキスト
     public BGMController bgmController; // BGMコントローラー
 
+
     // Start is called before the first frame update
     void Start()
     {
         Application.targetFrameRate = 60; // FPSを60に固定
-        rbody = GetComponent<Rigidbody2D>(); //Rigidbody2を得る
+        rbody = GetComponent<Rigidbody2D>(); //Rigidbody2Dを得る
         gameState = "playing"; //ゲームの状態をプレイ中にする
         gameOverUI.SetActive(false); // ゲームオーバーUIを非表示にする
         Button1UI.SetActive(false); // ゲームオーバーUIを非表示にする
@@ -87,8 +88,10 @@ public class PlayerController : MonoBehaviour
     IEnumerator GameOver()
     {
         gameState = "gameover";
-        //ゲームオーバー演出
-        GetComponent<BoxCollider2D>().enabled = false; //プレイヤーあたりを消す
+        // プレイヤーの操作を無効にする
+        GetComponent<PlayerController>().enabled = false;
+
+       
 
         // 3段階のエフェクトを0.2秒ずつ表示
         foreach (GameObject effectPrefab in deathEffects)
@@ -112,8 +115,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    
-
     // プレイヤーのライフをリセットするメソッド
     public void ResetPlayerHealth()
     {
@@ -130,7 +131,6 @@ public class PlayerController : MonoBehaviour
         Time.timeScale = 1f; // ゲームを再開
     }
 }
-
 
 
 

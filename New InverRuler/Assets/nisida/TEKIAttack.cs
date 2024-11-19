@@ -32,11 +32,11 @@ public class TEKIAttack : MonoBehaviour
             {
                 if (bossHealth.currentHealth > 50)
                 {
-                    AttackPattern1();
+                    AttackPattern1(8);
                 }
                 else if (bossHealth.currentHealth > 20)
                 {
-                    AttackPattern2(8);
+                    AttackPattern2();
                 }
                 else
                 {
@@ -46,22 +46,7 @@ public class TEKIAttack : MonoBehaviour
             }
         }
     }
-    void AttackPattern1()
-    {
-        Vector3 targetDirection = (FindObjectOfType<PlayerController>().transform.position - transform.position).normalized;
-
-        FireBullet(targetDirection);
-       
-       
-    }
-
-    void FireBullet(Vector3 direction)//ホーミング
-    {
-        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-        bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
-    }
-
-    void AttackPattern2(int bulletCount)//円形仮
+    void AttackPattern1(int bulletCount)//円形
     {
         float angleStep = 360f / bulletCount;
         float angle = 0f;
@@ -74,9 +59,16 @@ public class TEKIAttack : MonoBehaviour
             angle += angleStep;
         }
 
+
     }
 
-    void AttackPattern3()
+    void FireBullet(Vector3 direction)//ホーミング
+    {
+        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+    }
+
+    void AttackPattern2()//ランダム
     {
         for (int i = 0; i < randomCount; i++)
         {
@@ -96,6 +88,12 @@ public class TEKIAttack : MonoBehaviour
                 rb.velocity = direction * randomSpeed;
             }
         }
+
+    }
+
+    void AttackPattern3()
+    {
+       
 
     }
 

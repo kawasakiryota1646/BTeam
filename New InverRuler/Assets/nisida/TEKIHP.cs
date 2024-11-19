@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bosshealth : MonoBehaviour
+public class TEKIHP : MonoBehaviour
 {
-    public float health = 50f;  // 敵の体力
+    public int maxHealth = 100;
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
     public float flashDuration = 0.1f;
@@ -16,9 +16,12 @@ public class Bosshealth : MonoBehaviour
     public GameObject coinPrefab; // コインのプレハブ
     public int coinCount = 10; // 生成するコインの数
     public int coinsToAdd = 10; // 追加するコインの数
+    public AudioSource deathSound;
+    public float currentHealth;
 
     void Start()
     {
+        currentHealth = maxHealth;
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color;
 
@@ -28,12 +31,13 @@ public class Bosshealth : MonoBehaviour
         gameClearText.SetActive(false);
     }
 
-    public void TakeDamage(float damageAmount)
+    public void TakeDamage(float damage)
     {
-        health -= damageAmount;
-        if (health <= 0f)
+        currentHealth -= damage;
+        if (currentHealth <= 0)
         {
             StartCoroutine(Die());
+           
         }
         StartCoroutine(Flash());
     }
@@ -41,9 +45,16 @@ public class Bosshealth : MonoBehaviour
     IEnumerator Die()
     {
         yield return StartCoroutine(HandleExplosion()); // コルーチンを開始
+        Debug.Log("Boss died");
         Destroy(gameObject); // 敵を消す
+       
+       
 
-      
+        // 死亡時の効果音を再生
+        if (deathSound != null)
+        {
+            deathSound.Play();
+        }
 
         // ボタンとテキストを表示する
         retryButton.SetActive(true);
@@ -96,14 +107,3 @@ public class Bosshealth : MonoBehaviour
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
