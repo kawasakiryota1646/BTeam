@@ -1063,7 +1063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectionRadius: 1
-  avoidSpeed: 5
+  avoidSpeed: 3
   returnSpeed: 2
 --- !u!114 &1734108818
 MonoBehaviour:
@@ -1800,6 +1800,10 @@ PrefabInstance:
       propertyPath: deathEffects.Array.data[0]
       value: 
       objectReference: {fileID: 205398590896992992, guid: 851a771a406db274e9d5a38a2ebe072c, type: 3}
+    - target: {fileID: 4453932320518785533, guid: 877c26420e16d3e4c90b8d263b204bda, type: 3}
+      propertyPath: randomCount
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 877c26420e16d3e4c90b8d263b204bda, type: 3}
 --- !u!1001 &5251873288496752993
